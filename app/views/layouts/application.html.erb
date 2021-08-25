@@ -16,17 +16,23 @@
       <a class="navbar-brand" href="/">
         <span>Bookers2</span>
       </a>
-      
-    </div>
-    
-  </nav>
+      <div class="narbar-collapse collapse show" id="navbarNavDropdown" style>
+        <ul class="navbar-nav ml-auto"></ul>
     <% if user_signed_in? %>
+
       <li class="nav-">
         <%= link_to "logout", destroy_user_session_path, method: :delete %>
       </li>
       <li>
-       <%= link_to 'Users', user_path(current_user.id) %>
+       <%= link_to 'Users', users_path %>
       </li>
+      <li>
+        <%= link_to "Homes", user_path(current_user.id) %>
+      </li>
+      <li>
+        <%= link_to "Books",books_path %>
+      </li>
+
     <% else %>
       <li class="nav-item">
         <%= link_to "sign up", new_user_registration_path %>
@@ -35,9 +41,24 @@
         <%= link_to "login", new_user_session_path %>
       </li>
     <% end %>
+    </ul>
+    </div>
+    </div>
+    </nav>
     </header>
     <main>
     <%= yield %>
     </main>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+
+          </div>
+        </diV>
+      </div>
+    </footer>
   </body>
 </html>

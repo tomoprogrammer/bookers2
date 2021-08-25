@@ -1,8 +1,16 @@
-<div class="profile-container">
-  <h3 class="profile-name"><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  <% if @user.id == current_user.id %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+
+
+<%= render 'books/list', book: @book, user: @user %>
+
+
+<h1>Books</h1>
+<% @books.each do |book| %>
+<p>Title</p>
+<span>
+  <%= link_to book.title, book_path(book.id) %>
+  </span>
+  <p>Opinion</p>
+  <span>
+  <%= link_to book.body, book_path(book.id) %>
+  </span>
   <% end %>
-</div>
-<% @books.each do |post_image| %>

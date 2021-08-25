@@ -1,19 +1,13 @@
-<h1>User info</h1>
-<%=@user.name %>
-<%#=@user.introduction %>
+ <%= render 'books/list', user: @user, book: @book %>
 
-<h1>New book</h1>
-<%= form_with model: @book, local:true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
-
-
-
-
+<h1>Books</h1>
 <% @books.each do |book| %>
-  <%= link_to book_path(book.id) %>
+<p>Title</p>
+<span>
+  <%= link_to book.title, book_path(book.id) %>
+  </span>
+  <p>Opinion</p>
+  <span>
+  <%= link_to book.body, book_path(book.id) %>
+  </span>
   <% end %>

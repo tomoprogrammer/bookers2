@@ -6,6 +6,7 @@
   <label for="inputImage">Image</label>
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
   <lavel for="inputIntrodution">Introdution</lavel>
+  <%= f.text_area :introduction, autofocus: true, id:"introduction", placeholder:"自己紹介"%>
   <%= f.submit "Update User" %>
 <% end %>
 
