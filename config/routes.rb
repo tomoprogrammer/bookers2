@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
    get 'home/about' => 'homes#about'
 
+   get '/search', to: 'searches#search'
+
   devise_for :users
 
   resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
