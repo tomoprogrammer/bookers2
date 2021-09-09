@@ -35,19 +35,20 @@
            <td>
             <%= book.body %>
            </td>
-            <% if book.favorited_by?(current_user) %>
-             <td>
-              <%= link_to book_favorites_path(book.id), method: :delete, remote: true do %>
-               ♥<%= book.favorites.count %>
-             <% end %>
+            <%# if book.favorited_by?(current_user) %>
+             <td id="favorite_buttons_<%= book.id %>">
+           <%= render "favorites/favorites", book: book %>
+              <%#= link_to book_favorites_path(book.id), method: :delete, remote: true do %>
+               <%#= book.favorites.count %>
+             <%# end %>
+             <!--</td>-->
+             <%# else %>
+             <!--<td>-->
+              <%#= link_to book_favorites_path(book.id), method: :book, remote: true do %>
+               <%#= book.favorites.count %>
+              <%# end %>
              </td>
-             <% else %>
-             <td>
-              <%= link_to book_favorites_path(book.id), method: :book, remote: true do %>
-               ♡<%= book.favorites.count %>
-              <% end %>
-             </td>
-             <% end %>
+             <%# end %>
            <td>
             コメント件数:<%= book.book_comments.count %>
            </td>
